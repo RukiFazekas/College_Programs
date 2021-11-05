@@ -25,17 +25,17 @@ GO
 -- create table 'athlete' according to table design chart
 
 CREATE TABLE athlete(
-	athleteId				INT IDENTITY (1, 1),
+	athleteId			INT IDENTITY (1, 1),
 	athleteFirstName		VARCHAR(50) NOT NULL,
 	athleteLastName			VARCHAR(50) NOT NULL,
 	athleteBirthdate		DATE,
 	athleteBirthCity		VARCHAR(50),
 	athleteBirthState		VARCHAR(50),
 	athleteBirthCountry		VARCHAR(50),
-	athleteHeight			DECIMAL(3, 0) CHECK(athleteHeight>=0),
-	athleteWeight			DECIMAL(3, 0) CHECK(athleteWeight>=0),
+	athleteHeight			DECIMAL(3, 0) CHECK(athleteHeight > 0),
+	athleteWeight			DECIMAL(3, 0) CHECK(athleteWeight > 0),
 	athletePosition			CHAR(2) NOT NULL,
-	athleteBattingAvg		DECIMAL(4, 3) CHECK(athleteBattingAvg>=0.000 AND athleteBattingAvg<=1.000),
+	athleteBattingAvg		DECIMAL(4, 3) CHECK(athleteBattingAvg >= 0.000 AND athleteBattingAvg <= 1.000),
 	athleteIsActive			BIT NOT NULL DEFAULT 1,
 	CONSTRAINT pk_athlete_athleteId PRIMARY KEY (athleteId)
 );
