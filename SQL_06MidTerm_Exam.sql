@@ -14,7 +14,7 @@ GO
 USE mExam;
 GO
 
---5	Write the CREATE statement to create the Pokémon table below
+--5	Write the CREATE statement to create the PokÃ©mon table below
 
 CREATE TABLE pokemon (
 	pokemonId				INT IDENTITY (1, 1),
@@ -30,7 +30,7 @@ GO
 
 -- SELECT * FROM pokemon
 
---6	Compose INSERT statement to populate the Pokémon table below
+--6	Compose INSERT statement to populate the PokÃ©mon table below
 
 INSERT INTO pokemon
 	(pokemonDexNum, pokemonName, pokemonType, pokemonHeightCm, pokemonWeightKg, pokemonColour)
@@ -52,7 +52,7 @@ WHERE pokemonId = 1;
 GO
 
 --8	Compose SELECT statements to answer the following questions:
---qry1.	Display the names, dex numbers, and colors of Pokémon who DO NOT have the
+--qry1.	Display the names, dex numbers, and colors of PokÃ©mon who DO NOT have the
 --		pattern 'eon' anywhere in their name.  Concatenate the name and dex number
 --		into one field along with the # symbol, as shown in the sample output.
 
@@ -61,7 +61,7 @@ FROM pokemon
 WHERE pokemonName NOT LIKE '%eon%';
 GO
 
---qry2.	What is the name and Pokémon’s dex number of the tallest yellow Pokémon?
+--qry2.	What is the name and PokÃ©monâ€™s dex number of the tallest yellow PokÃ©mon?
 
 SELECT TOP 1 pokemonName, pokemonDexNum
 FROM pokemon
@@ -70,14 +70,14 @@ WHERE pokemonHeightCm = (SELECT MAX(pokemonHeightCm)
 						 WHERE pokemonColour LIKE 'Yellow');
 GO
 
---qry3.	What is the total weight of all electric Pokémon?
+--qry3.	What is the total weight of all electric PokÃ©mon?
 
 SELECT SUM(pokemonWeightKg) AS "Total Electric Weight"
 FROM pokemon
 WHERE pokemonType LIKE 'Electric';
 GO
 
---qry4.	Display all details about Pokémon who are heavier than the average weight.
+--qry4.	Display all details about PokÃ©mon who are heavier than the average weight.
 --		Order the output by weight from heaviest to lightest.
 
 SELECT pokemonId, pokemonDexNum, pokemonName, pokemonType, pokemonHeightCm, pokemonWeightKg, pokemonColour
